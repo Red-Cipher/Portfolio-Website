@@ -1,17 +1,34 @@
 import React from "react";
 
-const urlOne = "Placeholder string"
-const urlTwo = "Placeholder string"
-const urlThree = "Placeholder string"
-const urlFour = "Placeholder string"
+const navLinks = {
+  home: {
+    label: "Home",
+    href: "/home"
+  },
+  projects: {
+    label: "Projects",
+    href: "/projects"
+  },
+  about: {
+    label: "About Us",
+    href: "/about"
+  },
+  contact: {
+    label: "Contact Us",
+    href: "/contact"
+  }
+};
 
 function NavBar(props) {
+
   return (
     <ul>
-      <li href={urlOne.props}>Home</li>
-      <li href={urlTwo.props}>Projects</li>
-      <li href={urlThree.props}>About Us</li>
-      <li href={urlFour.props}>Contact Us</li>
+      {Object.entries(props.links).map(entry => {
+        const [key, value] = entry;
+        return (
+          <li key={key}><a href={value.href}>{value.label}</a></li>
+        );
+      })}
     </ul>
   );
 }
@@ -20,7 +37,7 @@ function Header() {
   return (
     <>
       <h1>Adam Zeineddine - Software Developer</h1>
-      <NavBar />
+      <NavBar links={navLinks} />
     </>
   );
 }
