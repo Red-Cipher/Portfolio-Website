@@ -1,4 +1,5 @@
 import React from "react";
+import "./header.scss";
 
 const navLinks = {
   home: {
@@ -22,7 +23,7 @@ const navLinks = {
 function NavBar(props) {
 
   return (
-    <ul>
+    <ul className="Navbar">
       {Object.entries(props.links).map(entry => {
         const [key, value] = entry;
         return (
@@ -35,10 +36,10 @@ function NavBar(props) {
 
 function Header() {
   return (
-    <>
-      <h1>Adam Zeineddine - Software Developer</h1>
+    <div>
+      <h1 className="header">Adam Zeineddine - Software Developer</h1>
       <NavBar links={navLinks} />
-    </>
+    </div>
   );
 }
 
